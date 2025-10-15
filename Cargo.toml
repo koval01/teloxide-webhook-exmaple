@@ -1,0 +1,19 @@
+[package]
+name = "teloxidebot"
+version = "0.1.0"
+edition = "2024"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = 'abort'
+strip = true
+debug = false
+
+[dependencies]
+teloxide = { version = "0.17.0", features = ["macros", "webhooks", "webhooks-axum"] }
+log = "0.4"
+pretty_env_logger = "0.5"
+tokio = { version =  "1.48", features = ["rt-multi-thread", "macros"] }
+axum = "0.8.6"
